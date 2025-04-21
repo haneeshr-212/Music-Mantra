@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Music Platform - Login / Signup</title>
+  <style>
+    body {
+      background-image: url('https://www.antiqueswebdesign.com/ph9/upload/editor/images/no-background-music_vinyl.jpeg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: rgba(103, 241, 65, 0.7);
+      padding: 20px;
+      border-radius: 50px;
+      text-align: center;
+      color: white;
+      width: 600px;
+      max-width: 90%;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 10px;
+      background: #147036;
+      border: none;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: 0.3s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #115c27;
+    }
+
+    .link {
+      display: block;
+      margin-top: 10px;
+      color: rgb(19, 71, 39);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .link:hover {
+      text-decoration: underline;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" class="input-field" placeholder="Enter Email" required />
+      <input type="password" id="loginPassword" class="input-field" placeholder="Enter Password" required />
+      <button class="btn" onclick="login()">Login</button>
+      <a class="link" onclick="forgotPassword()">Forgot Password?</a>
+      <a class="link" onclick="toggleForm()">Don't have an account? Sign Up</a>
+    </div>
+
+    <!-- Signup Form -->
+    <div id="signupForm" class="hidden">
+      <h2>Sign Up</h2>
+      <input type="text" id="signupName" class="input-field" placeholder="Full Name" required />
+      <input type="email" id="signupEmail" class="input-field" placeholder="Enter Email" required />
+      <input type="password" id="signupPassword" class="input-field" placeholder="Create Password" required />
+      <button class="btn" onclick="signup()">Sign Up</button>
+      <a class="link" onclick="toggleForm()">Already have an account? Login</a>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleForm() {
+      const loginForm = document.getElementById("loginForm");
+      const signupForm = document.getElementById("signupForm");
+
+      loginForm.classList.toggle("hidden");
+      signupForm.classList.toggle("hidden");
+    }
+
+    function getUsers() {
+      return JSON.parse(localStorage.getItem("users") || "[]");
+    }
+
+    function saveUsers(users) {
+      localStorage.setItem("users", JSON.stringify(users));
+    }
+
+    function signup() {
+      const name = document.getElementById("signupName").value.trim();
+      const email = document.getElementById("signupEmail").value.trim();
+      const password = document.getElementById("signupPassword").value;
+
+      if (!name || !email || !password) {
+        alert("Please fill in all fields to sign up.");
+        return;
+      }
+
+      const users = getUsers();
+
+      if (users.some(u => u.email === email)) {
+        alert("User with this email already exists. Try logging in.");
+        return;
+      }
+
+      users.push({ name, email, password });
+      saveUsers(users);
+
+      alert(`Signup successful! Welcome, ${name}.`);
+      toggleForm(); // Go back to login
+    }
+
+    function login() {
+      const email = document.getElementById("loginEmail").value.trim();
+      const password = document.getElementById("loginPassword").value;
+
+      if (!email || !password) {
+        alert("Please enter both email and password.");
+        return;
+      }
+
+      const users = getUsers();
+      const user = users.find(u => u.email === email && u.password === password);
+
+      if (user) {
+        alert(`Login successful! Welcome back, ${user.name}.`);
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
+        window.location.href = "dashboard.html"; // Simulated dashboard page
+      } else {
+        alert("Invalid login credentials. Try again or click 'Forgot Password?'.");
+      }
+    }
+
+    function forgotPassword() {
+      const email = prompt("Please enter your registered email:");
+
+      if (!email) {
+        alert("Email is required.");
+        return;
+      }
+
+      const users = getUsers();
+      const user = users.find(u => u.email === email.trim());
+
+      if (user) {
+        alert(`Your password is: ${user.password}`);
+      } else {
+        alert("No account found with that email.");
+      }
+    }
+  </script>
+
+</body>
+</html>

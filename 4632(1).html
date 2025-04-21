@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Music Mantra</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b, #6a11cb, #2575fc);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            text-align: center;
+            padding: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #ffcc00;
+        }
+
+        .caption {
+            font-size: 18px;
+            color: #ddd;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px 0;
+            position: relative;
+        }
+
+        .nav a {
+            color: #ffcc00;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .nav a:hover {
+            color: #fff;
+        }
+
+        .search-form {
+            position: absolute;
+            right: 20px;
+            display: flex;
+        }
+
+        .search-input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 20px;
+            border: none;
+            width: 250px;
+            text-align: center;
+        }
+
+        .search-button {
+            padding: 10px;
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .playlist h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffcc00;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .song {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .song:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+
+        .song img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        .song h3 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .song button {
+            background: #ffcc00;
+            color: #000;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .song button:hover {
+            background: #ffaa00;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Music Mantra</h1>
+        <p class="caption">Your one-stop platform for all music moods!</p>
+    </header>
+
+    <nav class="nav">
+        <a href="http://127.0.0.1:5500/login%20page.html">Login</a>
+        <a href="http://127.0.0.1:5500/signup%20for%20Music%20mantra.html">Sign Up</a>
+        <a href="http://127.0.0.1:5500/premium%20subscription.html">Premium</a>
+        <a href="http://127.0.0.1:5500/Contact.html">Contact Us</a> <!-- New Favorites Button -->
+       <form id="search-form" class="search-form">
+    <input type="text" id="search-input" class="search-input" placeholder="Search Songs..." />
+    <button type="submit" id="search-button" class="search-button">🔍</button>
+    <ul id="search-results" class="search-results"></ul>
+</form>
+
+
+
+    </nav>
+
+    <div class="container">
+        <section class="playlist">
+           
+            <h2>Happy Vibes</h2>
+            
+            <div class="grid" id="song-list">
+                <div class="song">
+                    <img src="https://i1.sndcdn.com/artworks-YL3ua1FAzIzzSk0e-OWj0qw-t1080x1080.jpg">
+                    <h3>Levitating</h3>
+                    <p><strong>Album:</strong> Future Nostalgia</p>
+                    <p><strong>Artist:</strong> Dua Lipa</p>
+                    <button class="play-btn"><a href="123.html">Play</a></button>
+                  
+                </div>
+
+                <div class="song">
+                    <img src="https://i1.sndcdn.com/artworks-000227899612-y4f4qj-t1080x1080.jpg">
+                    <h3>Paradise</h3>
+                    <p><strong>Album:</strong> Mylo Xyloto</p>
+                    <p><strong>Artist:</strong> Coldplay</p>
+                    <button class="play-btn"><a href="123.html">Play</a></button>
+                   
+                </div>
+                <div class="song">
+                    <img src="https://i1.sndcdn.com/artworks-000092737944-9lm4zo-t500x500.jpg">
+                    <h3>Shake It Off</h3>
+                    <p><strong>Album:</strong> 1989</p>
+                    <p><strong>Artist:</strong> Taylor Swift</p>
+                    <button class="play-btn"><a href="123.html">Play</a></button>
+                    
+                </div>
+                <div class="song">
+                    <img src="https://i.scdn.co/image/ab67616d0000b2739ca83780d6902df1e19b68a9">
+                    <h3>Chikni Chameli</h3>
+                    <p><strong>Album:</strong> Agneepath</p>
+                    <p><strong>Artist:</strong> Shreya Ghoshal</p>
+                    <button class="play-btn"><a href="123.html">Play</a></button>
+                    
+                </div>
+                <div class="song">
+                    <img src="https://i.scdn.co/image/ab67616d00001e027f2ad807a1247ce2b1c4ae38">
+                    <h3>Blinding Lights</h3>
+                    <p><strong>Album:</strong> After Hours</p>
+                    <p><strong>Artist:</strong> The Weeknd</p>
+                    <button class="play-btn"><a href="123.html">Play</a></button>
+                </div>
+            </div>
+            <script>
+                function playSong(title, artist, image, audio) {
+                    const url = "123.html?title=${encodeURIComponent(title)}&artist=${encodeURIComponent(artist)}&image=${encodeURIComponent(image)}&audio=${encodeURIComponent(audio)}";
+                    window.location.href = "http://127.0.0.1:5500/123.htmlsong=${encodedTitle}";
+                }
+            </script>
+            <section class="playlist">
+                <h2>Sad Songs</h2>
+                <div class="grid">
+                    <div class="song">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273744ea41a7c1ae57024752db9">
+                        <h3>Someone Like You</h3>
+                        <p><strong>Album:</strong> 21</p>
+                        <p><strong>Artist:</strong> Adele</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i.scdn.co/image/ab67616d0000b2736404721c1943d5069f0805f3">
+                        <h3>Tum Hi Ho</h3>
+                        <p><strong>Album:</strong> Aashiqui 2</p>
+                        <p><strong>Artist:</strong> Arijit Singh</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273f365e3c2d7d7eb9c362705a0">
+                        <h3>Let Her Go</h3>
+                        <p><strong>Album:</strong> All the Little Lights</p>
+                        <p><strong>Artist:</strong> Passenger</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i1.sndcdn.com/artworks-SchdejUhbg4DWuaQ-cxnpaA-t1080x1080.jpg">
+                        <h3>The Night We Met</h3>
+                        <p><strong>Album:</strong>Strange Trails</p>
+                        <p><strong>Artist:</strong>Lord Huron</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://cdn-images.dzcdn.net/images/cover/bdcf70737dc185ef7ec866fb29591137/0x1900-000000-80-0-0.jpg">
+                        <h3>Husn</h3>
+                        <p><strong>Album:</strong>Feel Good with Anuv Jain</p>
+                        <p><strong>Artist:</strong>Anuv Jain</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                </div>
+            </section>
+            <script>
+                function playSong(songTitle) {
+                    const encodedTitle = encodeURIComponent(songTitle);
+                    window.location.href = "http://127.0.0.1:5500/4632(2).html?song=${encodedTitle}";
+                }
+            </script>
+            <section class="playlist">
+                <h2>Romantic Hits</h2>
+                <div class="grid">
+                    <div class="song">
+                        <img src="https://c.saavncdn.com/023/Raabta-Hindi-2017-500x500.jpg">
+                        <h3>Darasal</h3>
+                        <p><strong>Album:</strong>Raabta</p>
+                        <p><strong>Artist:</strong>Atif Aslam</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i1.sndcdn.com/artworks-5QRVzLFOR1CJ6XBi-CRpmiw-t500x500.jpg">
+                        <h3>Perfect</h3>
+                        <p><strong>Album:</strong> Divide</p>
+                        <p><strong>Artist:</strong> Ed Sheeran</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://c.saavncdn.com/029/Fitoor-Hindi-2018-20210611191302-500x500.jpg">
+                        <h3>Yeh Fitoor Mera</h3>
+                        <p><strong>Album:</strong> Fitoor</p>
+                        <p><strong>Artist:</strong> Arijit Singh</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i.scdn.co/image/ab67616d0000b27309426d9ae9d8d981735ebc5e">
+                        <h3>Ranjha</h3>
+                        <p><strong>Album:</strong> Shershaah</p>
+                        <p><strong>Artist:</strong> B Praak</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNnCuX1j4Qtmcm1-dHw-kumAwi0RsTqnhaBQ&s">
+                        <h3>My Heart Will Go On</h3>
+                        <p><strong>Album:</strong> Titanic</p>
+                        <p><strong>Artist:</strong> Celine Dion</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                </div>
+            </section>
+            <script>
+                function playSong(songTitle) {
+                    const encodedTitle = encodeURIComponent(songTitle);
+                    window.location.href = "http://127.0.0.1:5500/4632(2).html?song=${encodedTitle}";
+                }
+            </script>
+            <!-- Additional Playlists -->
+            <section class="playlist">
+                <h2>Heartbreak Anthems</h2>
+                <div class="grid">
+                    <div class="song">
+                        <img src="https://c.saavncdn.com/915/Raanjhan-From-Do-Patti-Hindi-2024-20241004153945-500x500.jpg">
+                        <h3>Raanjhan</h3>
+                        <p><strong>Album:</strong> Do Patti</p>
+                        <p><strong>Artist:</strong> Sachet-Parampara</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://c.saavncdn.com/576/O-Bedardeya-From-Tu-Jhoothi-Main-Makkaar-Hindi-2023-20230303194422-500x500.jpg">
+                        <h3>O Bedardeya</h3>
+                        <p><strong>Album:</strong>Tu Jhoothi Main Makkar</p>
+                        <p><strong>Artist:</strong>Arijit Singh</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://cdn-images.dzcdn.net/images/cover/f3e03e9766c317c26aca7d8d3c00e51b/1900x1900-000000-80-0-0.jpg">
+                        <h3>A Thousand Years</h3>
+                        <p><strong>Album:</strong> The Twilight Saga</p>
+                        <p><strong>Artist:</strong> Christina Perri</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://c.saavncdn.com/440/Yeh-Jawaani-Hai-Deewani-2013-500x500.jpg">
+                        <h3>Kabira</h3>
+                        <p><strong>Album:</strong> Yeh Jawaani Hai Deewani</p>
+                        <p><strong>Artist:</strong> Rekha Bhardwaj, Arijit Singh</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                    </div>
+                    <div class="song">
+                        <img src="https://i.scdn.co/image/ab67616d0000b273bca30634e6cad10b97c03d21">
+                        <h3>Channa Mereya</h3>
+                        <p><strong>Album:</strong>Ae Dil Hai Mushkil</p>
+                        <p><strong>Artist:</strong>Pritam,Arijit Singh</p>
+                        <button class="play-btn"><a href="123.html">Play</a></button>
+                        
+                    </div>  
+                </div>
+                <section class="playlist">
+                    <h2>Devotional Songs</h2>
+                    <div class="grid">
+                        <div class="song">
+                            <img src="https://c.saavncdn.com/433/Sri-Rama-Rajyam-Tamil-2012-500x500.jpg">
+                            <h3>Jagadananda Karaka</h3>
+                            <p><strong>Album:</strong> Sri Rama Rajyam</p>
+                            <p><strong>Artist:</strong> SP.Balu, Shreya Ghoshal</p>
+                            <button class="play-btn"><a href="123.html">Play</a></button>
+                        </div>
+                        <div class="song">
+                            <img src="https://c.saavncdn.com/243/Annamayya-Telugu-1997-20221207194819-500x500.jpg">
+                            <h3>Nigama Nigamantha</h3>
+                            <p><strong>Album:</strong>Annamayya</p>
+                            <p><strong>Artist:</strong>Annamayya Keerthana, S. P. Balasubrahmanyam, K. S. Chithra</p>
+                            <button class="play-btn"><a href="123.html">Play</a></button>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273c18bc24bc077d786e5950842">
+                            <h3>Paluke Bangramayera </h3>
+                            <p><strong>Album:</strong> Sri Ramadasu</p>
+                            <p><strong>Artist:</strong> M M Keeravani, Chitra</p>
+                            <button class="play-btn"><a href="123.html">Play</a></button>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.scdn.co/image/ab67616d0000b27311178a223894d494d79b37c0">
+                            <h3>Akhilanda Koti</h3>
+                            <p><strong>Album:</strong> Om Namo Venkatesaya</p>
+                            <p><strong>Artist:</strong> Sharath Santosh, Srinidhi</p>
+                            <button class="play-btn"><a href="123.html">Play</a></button>
+                        </div>
+                        <div class="song">
+                            <img src="https://i.ytimg.com/vi/Qye2HPaiB98/maxresdefault.jpg">
+                            <h3>Gango Renuka Thalli</h3>
+                            <p><strong>Album:</strong>Pushpa 2:The Rule</p>
+                            <p><strong>Artist:</strong>Mahalingam</p>
+                            <button class="play-btn"><a href="123.html">Play</a></button>
+                            
+                        </div>  
+                    </div>
+                    <section class="playlist">
+                        <h2>Dance Numbers</h2>
+                        <div class="grid">
+                            <div class="song">
+                                <img src="https://i.scdn.co/image/ab67616d0000b273b8fce5f2acddb9ebac635db1">
+                                <h3>Junction Lo</h3>
+                                <p><strong>Album:</strong> Aagadu</p>
+                                <p><strong>Artist:</strong> Bheems</p>
+                                <button class="play-btn"><a href="123.html">Play</a></button>
+                            </div>
+                            <div class="song">
+                                <img src="https://i.scdn.co/image/ab67616d0000b27350497bd42da519b556ec1895">
+                                <h3>Dabidi Dibidi</h3>
+                                <p><strong>Album:</strong>Daaku Maharaj</p>
+                                <p><strong>Artist:</strong>Vagdevi</p>
+                                <button class="play-btn"><a href="123.html">Play</a></button>
+                            </div>
+                            <div class="song">
+                                <img src="https://c.saavncdn.com/450/Gabbar-Singh-2012-500x500.jpg">
+                                <h3>Kevvu Keka</h3>
+                                <p><strong>Album:</strong> Gabbar Singh</p>
+                                <p><strong>Artist:</strong> Mamta Sharma, Murali</p>
+                                <button class="play-btn"><a href="123.html">Play</a></button>
+                            </div>
+                            <div class="song">
+                                <img src="https://naasongs.com.co/wp-content/uploads/2018/06/Businessman-2012.jpg">
+                                <h3>Bad Boys</h3>
+                                <p><strong>Album:</strong> Businessman</p>
+                                <p><strong>Artist:</strong> Priya Hemesh, Geetha Madhuri</p>
+                                <button class="play-btn"><a href="123.html">Play</a></button>
+                            </div>
+                            <div class="song">
+                                <img src="https://i.scdn.co/image/ab67616d0000b2733ca2ef30b3d89c69b8917a18">
+                                <h3>Sheila Ki Jawani</h3>
+                                <p><strong>Album:</strong>Tees Maar Khan</p>
+                                <p><strong>Artist:</strong>Shekhar Ravjiani, Sunidhi Chauhan, and Vishal Dadlani</p>
+                                <button class="play-btn"><a href="123.html">Play</a></button>
+                                
+                            </div>  
+                        </div>
+                <script>
+                    function playSong(songTitle) {
+                        const encodedTitle = encodeURIComponent(songTitle);
+                        window.location.href = "http://127.0.0.1:5500/4632(2).html?song=${encodedTitle}";
+                    }
+                </script>
+    </div>
+
+    <script>
+        document.getElementById('search-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const songs = document.querySelectorAll('.song');
+            
+            songs.forEach(function (song) { 
+                const title = song.querySelector('h3').textContent.toLowerCase();
+                if (title.includes(query)) {
+                    song.style.display = 'block';
+                } else {
+                    song.style.display = 'none';
+                }
+            });
+        });
+    function addToFavorites(title, artist, image) {
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Retrieve favorites from localStorage
+        const song = { title, artist, image };
+        
+        // Check if the song is already in favorites
+        if (!favorites.some(fav => fav.title === song.title && fav.artist === song.artist)) {
+            favorites.push(song);
+            localStorage.setItem('favorites', JSON.stringify(favorites)); // Save the updated list to localStorage
+            alert(`${title} by ${artist} added to favorites!`);
+        } else {
+            alert('This song is already in your favorites!');
+        }
+    }
+
+    </script>
+</body>
+</html>
+    

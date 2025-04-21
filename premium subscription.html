@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Membership</title>
+    <style>
+        /* Background Styling */
+        body {
+            background-image: url('https://www.antiqueswebdesign.com/ph9/upload/editor/images/no-background-music_vinyl.jpeg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        /* Container Styling */
+        .membership-container {
+            background: rgba(48, 239, 122, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            width: 350px;
+        }
+
+        /* Input Fields */
+        .input-field, .select-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Membership Button */
+        .membership-btn {
+            width: 100%;
+            padding: 10px;
+            background: #18edd1;
+            border: none;
+            color: black;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .membership-btn:hover {
+            background: #2fe7e7;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="membership-container">
+        <h2>Premium Membership</h2>
+        <p>Enjoy exclusive benefits, priority access, and premium content.</p>
+        
+        <!-- Plan Selection -->
+        <label for="plan">Choose Your Plan:</label>
+        <select id="plan" class="select-field">
+            <option value="basic">Basic - $5/month</option>
+            <option value="pro">Pro - $10/month</option>
+            <option value="vip">VIP - $20/month</option>
+        </select>
+
+        <!-- Payment Options -->
+        <label for="payment">Select Payment Method:</label>
+        <select id="payment" class="select-field">
+            <option value="card">Credit/Debit Card</option>
+            <option value="paypal">PayPal</option>
+        </select>
+
+        <!-- Click to Enter Button -->
+        <button class="membership-btn" onclick="subscribe()">Click to Enter</button>
+    </div>
+
+    <script>
+        function subscribe() {
+            let plan = document.getElementById("plan").value;
+            let payment = document.getElementById("payment").value;
+            alert(`You have selected the ${plan} plan with ${payment}. Proceeding to payment...`);
+        }
+    </script>
+
+</body>
+</html>

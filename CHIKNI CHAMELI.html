@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Music Mantra</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: url('https://images.unsplash.com/photo-1520530894223-e07f4da5d629') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            transition: background 0.5s ease-in-out;
+            overflow: hidden;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .container {
+            padding: 100px 20px 50px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .song-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .song {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .song:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .song img {
+            width: 150px;
+            border-radius: 10px;
+        }
+
+        .song h3 {
+            margin: 10px 0; 
+        }
+
+        .play-btn {
+            background: #ffcc00;
+            color: black;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .play-btn:hover {
+            background: #ffaa00;
+        }
+
+        /* Music Player Full-Screen Mode */
+        .player-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background 0.5s ease-in-out;
+        }
+
+        .player-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+        }
+
+        .player-content {
+            position: relative;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: white;
+            width: 80%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .player-content img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .player-content h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .player-content p {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #ffcc00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #ffaa00;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>🎵 Music Mantra</header>
+
+    <div class="container">
+        <h2>Select a Song</h2>
+
+        
+    <!-- Full-Screen Music Player -->
+    <div class="player-container" id="player-container">
+        <div class="player-overlay"></div>
+        <div class="player-content">
+            <img id="player-image" src="https://i.scdn.co/image/ab67616d0000b2739ca83780d6902df1e19b68a9">
+            <h2 id="song-title"></h2>
+            <p id="song-artist"></p>
+            <audio id="audio-player" src="Chikni Chameli (PenduJatt.Com.Se).mp3" controls autoplay></audio>
+            <button class="back-btn" onclick="closePlayer()"> <a href="4632(1).html">Back</a></button>
+        </div>
+    </div>
+
+    <script>
+        function playSong(title, artist, image, audio) {
+            document.getElementById("player-container").style.display = "flex";
+            document.getElementById("player-image").src = image;
+            document.getElementById("song-title").innerText = title;
+            document.getElementById("song-artist").innerText = artist;
+            document.getElementById("audio-player").src = audio;
+            document.querySelector(".container").style.opacity = "0";
+        }
+
+        function closePlayer() {
+            document.getElementById("player-container").style.display = "none";
+            document.querySelector(".container").style.opacity = "1";
+        }
+    </script>
+
+</body>
+</html>
